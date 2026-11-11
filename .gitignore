@@ -1,0 +1,16 @@
+# Mac junk
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+# Editor and system leftovers
+*.swp
+*~
+Thumbs.db
+.vscode/
+.idea/
+# Never upload these if they ever appear
+.env
+.env.*
+node_modules/
+.netlify/

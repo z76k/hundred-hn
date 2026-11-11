@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="112" fill="#c8410b"/>
+  <rect x="40" y="40" width="432" height="432" rx="84" fill="none" stroke="#faf7f0" stroke-opacity=".18" stroke-width="6"/>
+  <text x="256" y="300" text-anchor="middle" font-family="Iowan Old Style, Charter, Georgia, serif" font-weight="700" font-size="196" fill="#faf7f0" letter-spacing="-6">100</text>
+  <rect x="148" y="350" width="216" height="14" rx="7" fill="#faf7f0" fill-opacity=".85"/>
+</svg>

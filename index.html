@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Hundred · a Hacker News reader</title>
+<meta name="description" content="A fast, read-only Hacker News reader showing stories with 100+ comments.">
+<meta name="theme-color" content="#faf7f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#141310" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="The Hundred">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<script>
+  // Apply the saved theme before first paint.
+  (function () {
+    var t = 'auto';
+    try { t = (JSON.parse(localStorage.getItem('hundred.prefs')) || {}).theme || localStorage.getItem('hundred.theme') || 'auto'; } catch (e) {}
+    var dark = t === 'dark' || (t === 'auto' && matchMedia('(prefers-color-scheme: dark)').matches);
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    // The install manifest only works when hosted; from a local file it would just log an error.
+    if (/^https?:$/.test(location.protocol)) {
+      var m = document.createElement('link'); m.rel = 'manifest'; m.href = 'manifest.webmanifest';
+      document.head.appendChild(m);
+    }
+  })();
+</script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="mast">
+  <div class="mast-inner">
+    <a class="brand" href="#/top"><span class="brand-mark">The <b>Hundred</b></span><span class="brand-sub">Hacker News, 100+ comments</span></a>
+    <span class="updating" id="updating" hidden><span class="dot"></span>updating…</span>
+    <button type="button" class="pill-toggle kb-only" data-open-help title="Keyboard shortcuts (?)">?</button>
+    <button type="button" class="pill-toggle settings-btn" data-open-settings title="Settings (,)" aria-label="Settings"><span class="label">Settings</span><span class="gear" aria-hidden="true">⚙</span></button>
+    <div class="theme-switch" role="group" aria-label="Theme">
+      <button type="button" data-theme-pref="light">Light</button>
+      <button type="button" data-theme-pref="auto">Auto</button>
+      <button type="button" data-theme-pref="dark">Dark</button>
+    </div>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Story lists"></nav>
+</header>
+
+<main class="wrap" id="view" aria-live="polite"></main>
+<dialog id="dialog"></dialog>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script src="fmt.js"></script>
+<script src="store.js"></script>
+<script src="api.js"></script>
+<script src="anim.js"></script>
+<script src="state.js"></script>
+<script src="view-list.js"></script>
+<script src="view-thread.js"></script>
+<script src="view-search.js"></script>
+<script src="view-profile.js"></script>
+<script src="view-split.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
