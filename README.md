@@ -1,1 +1,1 @@
-vibecoded hackwr news client
+vibecoded hacker news client
